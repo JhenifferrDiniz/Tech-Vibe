@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Vibe - Enquetes & Zueira</title>
+
+    <link rel="stylesheet" href="C:\Users\roger\OneDrive\Área de Trabalho\Jheniffer\Projeto_Desev\estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>&lt;Tech_Zueira /&gt;</h1>
+        <p>Onde o café vira código e os bugs viram features.</p>
+    </header>
+
+    <main>
+        <!-- Seção de Vídeo (Iframe) -->
+        <section>
+            <h2>1. Trilha Sonora pro Code</h2>
+            <p>Dá o play nesse som enquanto a gente bate um papo. É pra não surtar quando o CSS quebrar.</p>
+            <div class="video-container">
+                <!-- Vídeo Lo-fi para programar --> <!--src="https://www.youtube.com/watch?v=jfKfPfyJRdk"--->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk?si=sVIh3nVzZBYDvdF1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Polêmicas da Semana</h2>
+            <form id="techForm">
+                
+                <p><strong>Qual é o seu "Superpoder" na sexta-feira às 17h?</strong></p>
+                <label class="poll-option">
+                    <input type="radio" name="poder" value="timedout">
+                    Desculpe o ping da minha disposição deu timedout.
+                </label>
+                <label class="poll-option">
+                    <input type="radio" name="poder" value="cafe">
+                    Tomar tanto café que começo a ver o código do Matrix.
+                </label>
+                <label class="poll-option">
+                    <input type="radio" name="poder" value="luz">
+                    Fechando todos os tickets com a velocidade da Luz.
+                </label>
+
+                <br>
+
+                <p><strong>A impressora parou de funcionar. O que você faz?</strong></p>
+                <label class="poll-option">
+                    <input type="radio" name="printer" value="ti">
+                    "Já tentou reiniciar?" (Clássico).
+                </label>
+                <label class="poll-option">
+                    <input type="radio" name="printer" value="energia">
+                    O cabo de energia está conectado?.
+                </label>
+                <label class="poll-option">
+                    <input type="radio" name="printer" value="fuga">
+                    Finjo que não trabalho aqui.
+                </label>
+
+            </form>
+        </section>
+
+        <section style="border-bottom: none;">
+            <h2>3. Como saber diferenciar um Júnior de um Pleno ou Sênior?</h2>
+            <p><strong>Conseguimos diferenciar as vezes pela expressão.</strong></p>
+
+        <ul id="list">
+            <li>Se os outros ficam putos com o que vc faz, você é júnior;</li>
+            <li>Se ninguém fica puto, você é pleno;</li>
+            <li>Agora, se você é quem fica puto com o que os outros fazem, daí você é sênior.</li> 
+        </ul>
+        <p><strong>Em todos os níveis o café será seu aliado &#9749;.</strong></p>
+        <img id="cat"src="C:\Users\roger\OneDrive\Área de Trabalho\Jheniffer\Projeto_Desev\gatinho.jfif" alt= Você gatinho antes e depois do cafe>
+        <aside>
+        </section>
+
+        <!-- Botões Funcionais -->
+        <section style="border-bottom: none;">
+            <h2>4. Área de Testes</h2>
+            <p>Aqui a mágica acontece (ou o bug aparece).</p>
+            
+            <div class="botoes-area">
+                <!-- Botão de Download -->
+                <button class="meu-botao" onclick="baixarArquivo()">
+                   &#128233 Baixar "Segredo.txt"
+                </button>
+
+                <!-- Botão JavaScript Interativo -->
+                <button class="meu-botao" onclick="acaoMisteriosa()">
+                    &#x1F680 Não Clique Aqui
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido na força do ódio e do café &#9749; | 2025</p>
+    </footer>
+
+    <!-- Modal Customizado -->
+    <div id="meuModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: var(--neon-green);">Atenção, Dev!</h2>
+            <p id="modalTexto">Texto do modal aqui...</p>
+            <button class="meu-botao" style="padding: 10px 20px; font-size: 14px; margin-top: 15px;" onclick="fecharModal()">Valeu, fechar</button>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script>
+        // Função 1: Baixar arquivo
+        function baixarArquivo() {
+            const conteudo = "CONFIDENCIAL:\n\nSe você está lendo isso, você esqueceu de commitar o código na sexta-feira.\nBoa sorte!";
+            const blob = new Blob([conteudo], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "segredo_do_senior.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            mostrarModal("Arquivo secreto baixado com sucesso! Verifique sua pasta de downloads.");
+        }
+
+        // Função 2: Botão Misterioso
+        function acaoMisteriosa() {
+            const frases = [
+                "Erro 404: Sua paciência não foi encontrada.",
+                "Compilando... Espere sentado.",
+                "Na minha máquina funciona ¯\\(ツ)/¯",
+                "Vai lá tomar uma água e respira fundo."
+            ];
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+            mostrarModal(fraseAleatoria);
+        }
+
+        // Controle do Modal
+        const modal = document.getElementById("meuModal");
+        const modalTexto = document.getElementById("modalTexto");
+
+        function mostrarModal(mensagem) {
+            modalTexto.innerText = mensagem;
+            modal.style.display = "flex";
+        }
+
+        function fecharModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                fecharModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
