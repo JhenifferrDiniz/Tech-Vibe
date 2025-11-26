@@ -69,10 +69,10 @@
         <ul id="list">
             <li>Se os outros ficam putos com o que vc faz, você é júnior;</li>
             <li>Se ninguém fica puto, você é pleno;</li>
-            <li>Agora, se você é quem fica puto com o que os outros fazem, daí você é sênior.</li> 
+            <li>Agora amigo, se você é quem fica puto com o que os outros fazem, daí você é sênior.</li> 
         </ul>
         <p><strong>Em todos os níveis o café será seu aliado &#9749;.</strong></p>
-        <img id="cat"src="C:\Users\roger\OneDrive\Área de Trabalho\Jheniffer\Projeto_Desev\gatinho.jfif" alt= Você gatinho antes e depois do cafe>
+        <img id="cat"src="C:\Users\roger\OneDrive\Área de Trabalho\Jheniffer\Projeto_Desev\gatinho.jfif" alt= "gatinho antes e depois do cafe">
         <aside>
         </section>
 
@@ -103,14 +103,14 @@
     <div id="meuModal" class="modal">
         <div class="modal-content">
             <h2 style="color: var(--neon-green);">Atenção, Dev!</h2>
-            <p id="modalTexto">Texto do modal aqui...</p>
+            <p id="modalTexto">Arquivo secreto baixado com sucesso! Verifique sua pasta de downloads.</p>
             <button class="meu-botao" style="padding: 10px 20px; font-size: 14px; margin-top: 15px;" onclick="fecharModal()">Valeu, fechar</button>
         </div>
     </div>
 
     <!-- Script JS -->
     <script>
-        // Função 1: Baixar arquivo
+        // Baixar arquivo
         function baixarArquivo() {
             const conteudo = "CONFIDENCIAL:\n\nSe você está lendo isso, você esqueceu de commitar o código na sexta-feira.\nBoa sorte!";
             const blob = new Blob([conteudo], { type: "text/plain" });
@@ -122,10 +122,10 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            mostrarModal("Arquivo secreto baixado com sucesso! Verifique sua pasta de downloads.");
+            mostrarModal(modalTexto.innerText);
         }
 
-        // Função 2: Botão Misterioso
+        //  Botão Misterioso
         function acaoMisteriosa() {
             const frases = [
                 "Erro 404: Sua paciência não foi encontrada.",
